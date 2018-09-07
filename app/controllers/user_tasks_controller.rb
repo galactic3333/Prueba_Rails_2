@@ -18,4 +18,5 @@ class UserTasksController < ApplicationController
     @user.tasks.delete(@task)
     redirect_to task_status_path(@user)
   end
+
 end
