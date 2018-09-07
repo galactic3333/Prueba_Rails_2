@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tareas Pendientes</h1>
+<br>
+<div class="container-fluid">
+  <div class="card-columns">
+    <% @tasks.each do |task| %>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= task.photo %>" alt="Card image cap">
+        <div class="card-body">
+          <%= link_to task.title, task %>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <!-- <a href="<% complete_task_path %>" class="btn btn-primary">Go somewhere</a> -->
+          <%= button_to 'Completar Tarea', complete_task_path(task_id: task.id), :method => :post, class: "btn btn-danger"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<h1>Tareas Completadas</h1>
+<br>
+<div class="container-fluid">
+  <div class="card-columns">
+    <% @user_tasks.each do |task| %>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= task.photo %>" alt="Card image cap">
+        <div class="card-body">
+          <%= link_to task.title, task %>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <!-- <a href="<% complete_task_path %>" class="btn btn-primary">Go somewhere</a> -->
+          <%= link_to 'Marcar Como No Completada', remove_task_path(task_id: task.id), :method => :delete, class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'New Task', new_task_path %>
