@@ -1,5 +1,12 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <div class="navbar-brand">Imperdibles Fiestas Patrias<span style="margin-left: 30px">Tareas Completadas:</span><%= current_user.tasks.count %></div>
+  <div class="navbar-brand">Imperdibles Fiestas Patrias</div>
+  <% if user_signed_in? %>
+    <div style="color: white">Tareas Completadas:
+      <%= current_user.tasks.count %>/
+      <%= Task.count %>
+    </div>
+  <% end %>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
