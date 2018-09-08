@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Usuarios que han completado esta tarea:</h1>
+
+<div class="container">
+  <div class="row ">
+    <div class="col-md-6">
+      <table class="table">
+        <% @task.users.each do |user| %>
+          <tr>
+            <td>
+                <div style="background-image: url(<%= user.user_photo %>);background-repeat: no-repeat;background-size: cover;background-position: center;width: 80px; height: 80px;border-radius: 50%;border: 2px solid #FFC148;">
+                </div>
+            </td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+</div>
+
+</div>

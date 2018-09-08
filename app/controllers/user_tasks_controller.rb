@@ -19,4 +19,9 @@ class UserTasksController < ApplicationController
     redirect_to task_status_path(@user)
   end
 
+  def task_list
+    @task = Task.find(params[:id])
+    @users = @task.users
+  end
+
 end
