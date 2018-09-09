@@ -20,8 +20,11 @@ class UserTasksController < ApplicationController
   end
 
   def task_list
+
     @task = Task.find(params[:id])
     @users = @task.users
+    @usertask = UserTask.all
+    @task5 = @usertask.order(updated_at: :asc).where(task_id: params[:id]).limit(5)
   end
 
 end
