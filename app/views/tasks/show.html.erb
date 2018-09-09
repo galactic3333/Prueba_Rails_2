@@ -1,12 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @task.title %>
 </p>
 
 <p>
-  <strong>Photo:</strong>
+  <strong>Descripción:</strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong>Fotografía:</strong>
   <%= @task.photo %>
 </p>
 
@@ -14,5 +19,4 @@
   	<%= link_to 'Edit', edit_task_path(@task) %> |
 	<%= link_to 'Destroy', task_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
-<%= link_to 'Destroy', task_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', tasks_path %>
