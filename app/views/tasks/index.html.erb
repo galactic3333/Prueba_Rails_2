@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks</h1>
+<h1>Actividades para estas fiestas patrias</h1>
 <br>
 <div class="container-fluid">
   <div class="card-columns">
@@ -8,13 +8,19 @@
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="<%= task.photo %>" alt="Card image cap">
         <div class="card-body">
-          <%= link_to task.title, task %>
+          <% if current_user.try(:admin?) %>
+            <%= link_to task.title, task %>
+          <% else %>
+            <strong><%= task.title %></strong>
+          <% end %>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="<%= new_user_session_path %>" class="btn btn-primary">Completar tarea</a>
         </div>
       </div>
     <% end %>
   </div>
 </div>
 
-<%= link_to 'New Task', new_task_path %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'New Task', new_task_path %>
+<% end %>

@@ -36,4 +36,7 @@
   </div>
 </div>
 
-<%= link_to 'New Task', new_task_path %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Nueva Tarea', new_task_path %>
+<% end %>
+
